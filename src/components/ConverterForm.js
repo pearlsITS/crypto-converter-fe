@@ -23,7 +23,6 @@ function ConverterForm() {
   useEffect(() => {
     fetchTopCryptos();
     fetchSupportedCurrency();
-    
   }, []);
 
    useEffect(() => {
@@ -38,7 +37,6 @@ function ConverterForm() {
       const response = await axios.get("/top-cryptos");
       setTopCryptos(response.data.topCryptos);
     } catch (error) {
-      console.log(error)
       toast.error(error?.response?.statusText ? error?.response?.statusText :"Something went wrong" );
     }
   };
@@ -47,9 +45,7 @@ function ConverterForm() {
     try {
       const response = await axios.get("/supported-vs-currencies");
       setSupportedVsCurrencies(response.data.supportedVsCurrencies);
-      register('targetCurrency', { value: "usd" });
     } catch (error) {
-console.log(error);
       toast.error(error?.response?.statusText ? error?.response?.statusText :  "Something went wrong");
     }
   };
