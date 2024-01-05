@@ -11,7 +11,6 @@ function ConverterForm() {
     watch,
     formState: { errors }
   } = useForm({
-    //done
   });
   const watchAllFields = watch();
 
@@ -23,7 +22,7 @@ function ConverterForm() {
   useEffect(() => {
     fetchTopCryptos();
     fetchSupportedCurrency();
-    register('targetCurrency', { value: "usd" });
+    
   }, []);
 
   const fetchTopCryptos = async () => {
@@ -39,7 +38,7 @@ function ConverterForm() {
     try {
       const response = await axios.get("/supported-vs-currencies");
       setSupportedVsCurrencies(response.data.supportedVsCurrencies);
-      
+      register('targetCurrency', { value: "usd" });
     } catch (error) {
       toast.error(error?.response?.statusText ? error?.response?.statusText :  "Something went wrong");
     }
