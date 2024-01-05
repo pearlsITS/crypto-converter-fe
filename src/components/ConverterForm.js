@@ -21,6 +21,7 @@ function ConverterForm() {
   useEffect(() => {
     fetchTopCryptos();
     fetchSupportedCurrency();
+    setValue("targetCurrency", "usd");
   }, []);
 
   const fetchTopCryptos = async () => {
@@ -36,7 +37,7 @@ function ConverterForm() {
     try {
       const response = await axios.get("/supported-vs-currencies");
       setSupportedVsCurrencies(response.data.supportedVsCurrencies);
-      setValue("targetCurrency", "usd");
+      
     } catch (error) {
       toast.error(error?.response?.statusText ? error?.response?.statusText :  "Something went wrong");
     }
