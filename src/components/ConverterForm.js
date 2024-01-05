@@ -10,7 +10,11 @@ function ConverterForm() {
     setValue,
     watch,
     formState: { errors }
-  } = useForm({});
+  } = useForm({
+    defaultValues: {
+      targetCurrency: 'usd', 
+    },
+  });
   const watchAllFields = watch();
 
   const [convertedAmount, setConvertedAmount] = useState(null);
