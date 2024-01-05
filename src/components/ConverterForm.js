@@ -29,7 +29,7 @@ function ConverterForm() {
       const response = await axios.get("/top-cryptos");
       setTopCryptos(response.data.topCryptos);
     } catch (error) {
-      toast.error(error?.response?.statusText ?? "Something went wrong");
+      toast.error(error?.response?.statusText ? error?.response?.statusText :"Something went wrong" );
     }
   };
 
@@ -39,7 +39,7 @@ function ConverterForm() {
       setSupportedVsCurrencies(response.data.supportedVsCurrencies);
       setValue("targetCurrency", "usd");
     } catch (error) {
-      toast.error(error?.response?.statusText ?? "Something went wrong");
+      toast.error(error?.response?.statusText ? error?.response?.statusText :  "Something went wrong");
     }
   };
 
@@ -53,7 +53,7 @@ function ConverterForm() {
       setConvertedAmount(response.data.convertedAmount);
       setSelectedCurrency(data.targetCurrency);
     } catch (error) {
-      toast.error(error?.response?.statusText ?? "Something went wrong");
+      toast.error(error?.response?.statusText ? error?.response?.statusText : "Something went wrong");
     }
   };
 
