@@ -23,7 +23,7 @@ function ConverterForm() {
   useEffect(() => {
     fetchTopCryptos();
     fetchSupportedCurrency();
-    register('targetCurrency', { value: usd });
+    register('targetCurrency', { value: "usd" });
   }, []);
 
   const fetchTopCryptos = async () => {
