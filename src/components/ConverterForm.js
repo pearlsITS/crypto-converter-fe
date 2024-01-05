@@ -11,9 +11,7 @@ function ConverterForm() {
     watch,
     formState: { errors }
   } = useForm({
-    defaultValues: {
-      targetCurrency: 'usd', 
-    },
+    
   });
   const watchAllFields = watch();
 
@@ -25,7 +23,7 @@ function ConverterForm() {
   useEffect(() => {
     fetchTopCryptos();
     fetchSupportedCurrency();
-   
+    register('targetCurrency', { value: usd });
   }, []);
 
   const fetchTopCryptos = async () => {
