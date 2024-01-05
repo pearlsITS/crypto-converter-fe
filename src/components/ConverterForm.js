@@ -25,7 +25,6 @@ function ConverterForm() {
 
   const fetchTopCryptos = async () => {
     try {
-      console.log("axios",axios);
       const response = await axios.get("/top-cryptos");
       setTopCryptos(response.data.topCryptos);
     } catch (error) {
