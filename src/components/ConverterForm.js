@@ -108,7 +108,7 @@ function ConverterForm() {
               })}
             >
               <option value="">Select Crypto</option>
-              {topCryptos.map((crypto) => (
+              {topCryptos?.map((crypto) => (
                 <option key={crypto.id} value={crypto.id}>
                   {crypto.name} ({crypto.symbol})
                 </option>
@@ -134,7 +134,7 @@ function ConverterForm() {
               })}
             >
               <option value="">Select Target Currency</option>
-              {supportedVsCurrencies.map((currency) => (
+              {supportedVsCurrencies?.map((currency) => (
                 <option key={currency} value={currency}>
                   {currency}
                 </option>
