@@ -9,6 +9,7 @@ function ConverterForm() {
     handleSubmit,
     setValue,
     watch,
+    reset,
     formState: { errors }
   } = useForm({
   });
@@ -24,6 +25,13 @@ function ConverterForm() {
     fetchSupportedCurrency();
     
   }, []);
+
+   useEffect(() => {
+    reset((formValues) => ({
+      ...formValues,
+      targetCurrency: "usd",
+    }));
+  }, [supportedVsCurrencies]);
 
   const fetchTopCryptos = async () => {
     try {
